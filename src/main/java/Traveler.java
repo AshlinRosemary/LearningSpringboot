@@ -1,5 +1,5 @@
 public class Traveler {
-    Car car;
+    /*Car car;
     //why Constructor given (Traveler)? Exception in thread "main" java.lang.NullPointerException: Cannot invoke "Car.move()" because "this.car" is null
     //	at Traveler.startJourney(Traveler.java:7)
     //	at Client.main(Client.java:4)
@@ -8,5 +8,14 @@ public class Traveler {
     }
     public void startJourney(){
         this.car.move();
+    }*/
+
+    private Vehicle vehicle;
+    public Traveler(Vehicle vehicle){
+        this.vehicle=vehicle;
+    }
+
+    public void startJourney(){
+        this.vehicle.move();
     }
 }

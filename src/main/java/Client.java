@@ -1,6 +1,7 @@
 public class Client {
     public static void main(String[] args) {
-        Traveler traveler=new Traveler();
+        Vehicle vehicle=new Bike();
+        Traveler traveler=new Traveler(vehicle);
         traveler.startJourney();
     }
 }
