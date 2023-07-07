@@ -19,7 +19,8 @@ public class Traveler {
 
     private Vehicle vehicle;
     @Autowired
-    public Traveler(@Qualifier("bike") Vehicle vehicle){
+    //Removed @Qualifier("bike") and added @Primary at bike class
+    public Traveler(Vehicle vehicle){
 
         this.vehicle=vehicle;
     }
