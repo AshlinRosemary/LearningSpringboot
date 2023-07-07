@@ -1,5 +1,10 @@
 package com.spring.core;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("traveler")
 public class Traveler {
     /*com.spring.core.Car car;
     //why Constructor given (com.spring.core.Traveler)? Exception in thread "main" java.lang.NullPointerException: Cannot invoke "com.spring.core.Car.move()" because "this.car" is null
@@ -13,7 +18,9 @@ public class Traveler {
     }*/
 
     private Vehicle vehicle;
-    public Traveler(Vehicle vehicle){
+    @Autowired
+    public Traveler(@Qualifier("bike") Vehicle vehicle){
+
         this.vehicle=vehicle;
     }
 
