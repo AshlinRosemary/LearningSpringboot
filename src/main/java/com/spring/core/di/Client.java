@@ -8,6 +8,9 @@ public class Client {
     SMSService smsService=new SMSService();
     EmailService emailService=new EmailService();
 //Tight Coupling without dependency Injection --> Message Sender depends
+        //By loose coupling i.e,by introducing Interface Message service class ,
+        // there is no direct connection b/w Message sender class - SMSservice or EmailService
+        // by changing parameter of MessageSender we can switch b/w EmailService & SmsService
     MessageSender messageSender=new MessageSender(emailService);
     messageSender.sendMessage(message);
     }
