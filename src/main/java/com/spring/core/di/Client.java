@@ -6,8 +6,9 @@ public class Client {
     String message="Hi Goodmorning";
 
     SMSService smsService=new SMSService();
-
-    MessageSender messageSender=new MessageSender(smsService);
+    EmailService emailService=new EmailService();
+//Tight Coupling without dependency Injection --> Message Sender depends
+    MessageSender messageSender=new MessageSender(emailService);
     messageSender.sendMessage(message);
     }
 }
