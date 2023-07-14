@@ -9,6 +9,13 @@ public class MessageSender {
 
     //private EmailService emailService;
     private MessageService messageService;
+    private MessageService smsService;
+    @Autowired
+    public void setSmsService(MessageService smsService) {
+        this.smsService = smsService;
+        System.out.println("Setter based injection for SMS service while Email service is present ");
+    }
+
     @Autowired
     public void setMessageService(@Qualifier("emailService") MessageService messageService) {
         this.messageService = messageService;
@@ -32,6 +39,6 @@ public class MessageSender {
         }*/
     public void sendMessage(String message){
         this.messageService.sendMessage(message);
-        //this.smsService.sendMessage(message);
+        this.smsService.sendMessage(message);
     }
 }
