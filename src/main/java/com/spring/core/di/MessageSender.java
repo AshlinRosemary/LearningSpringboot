@@ -8,8 +8,13 @@ import org.springframework.stereotype.Component;
 public class MessageSender {
 
     //private EmailService emailService;
+    //Field based injection
+    @Autowired
+    @Qualifier("emailService")
     private MessageService messageService;
+    @Autowired
     private MessageService smsService;
+    /*Set DI
     @Autowired
     public void setSmsService(MessageService smsService) {
         this.smsService = smsService;
@@ -20,7 +25,7 @@ public class MessageSender {
     public void setMessageService(@Qualifier("emailService") MessageService messageService) {
         this.messageService = messageService;
         System.out.println("Setter based Injection for Email Service");
-    }
+    }*/
 
     /*private MessageService smsService;
         //@Autowired
