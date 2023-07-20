@@ -16,6 +16,12 @@ class Student{
         System.out.println("Student class is called.....");
         address.print();
     }
+    public void Initialization(){
+        System.out.println("Initialization Method");
+    }
+    public void Destruction(){
+        System.out.println("Destruction Method");
+    }
 }
 class Address{
     public void print(){
@@ -29,14 +35,17 @@ class AppConfig{
     public Address address(){
         return new Address();
     }
-    @Bean(name={"studentBean","StudentDemo"})
+    @Bean(name="studentBean" ,initMethod = "Initialization", destroyMethod = "Destruction")
     public Student student(){
         return new Student(address());
     }
 }
 public class BeanAnnotationDemo {
     public static void main(String[] args) {
-        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(AppConfig.class);
+
+        try(var applicationContext=new AnnotationConfigApplicationContext(AppConfig.class)){
+
+
         Student student=applicationContext.getBean(Student.class);
         Student student1= (Student) applicationContext.getBean("studentBean");
         String[] beanNames=applicationContext.getBeanDefinitionNames();
@@ -45,5 +54,6 @@ public class BeanAnnotationDemo {
         }
         student.print();
         student1.print();
+     }
     }
 }
